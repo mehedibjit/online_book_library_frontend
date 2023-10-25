@@ -11,6 +11,8 @@ const Header = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
 
+  // const userId = 3;
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/login');
@@ -20,7 +22,7 @@ const Header = () => {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Logo
+          Online Book Library
         </Typography>
         <div>
           <Button color="inherit" component={Link} to="/">
@@ -28,14 +30,17 @@ const Header = () => {
           </Button>
           {token ? (
             <>
-              <Button color="inherit" component={Link} to="/users">
+              {/* <Button color="inherit" component={Link} to="/users">
                 User List
-              </Button>
-              <Button color="inherit" component={Link} to="/user/search">
+              </Button> */}
+              {/* <Button color="inherit" component={Link} to="/users/search/:userId">
                 Search User
-              </Button>
-              <Button color="inherit" component={Link} to="/books/create">
+              </Button> */}
+              {/* <Button color="inherit" component={Link} to="/books/create">
                 Add Book
+              </Button> */}
+              <Button color="inherit" component={Link} to="/users/4/history">
+                My History
               </Button>
               <Button color="inherit" onClick={handleLogout}>
                 Logout
