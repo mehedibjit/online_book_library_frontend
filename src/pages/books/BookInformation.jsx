@@ -16,6 +16,7 @@ const BookInformation = ({
   handleDeleteClick,
   handleBorrowSuccess,
   handleReturnSuccess,
+  handleReserveSuccess,
 }) => {
   return (
     <div>
@@ -65,6 +66,12 @@ const BookInformation = ({
           </Button>
           <BookBorrow bookId={bookData.id} onBorrowSuccess={handleBorrowSuccess} />
           <BookReturn bookId={bookData.id} onReturnSuccess={handleReturnSuccess} />
+
+          <BookReserve
+            bookId={bookData.id}
+            availabilityStatus={bookData.availabilityStatus}
+            onReserveSuccess={handleReserveSuccess}
+          />
         </div>
       )}
     </div>
