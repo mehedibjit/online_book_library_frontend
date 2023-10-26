@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import axiosInstance from '../../../utils/axiosInstance'; // Update the import path
+import axiosInstance from '../../../utils/axiosInstance';
 import { Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions, Typography } from '@mui/material';
 
 const BookBorrow = ({ bookId, onBorrowSuccess }) => {
   const [dueDate, setDueDate] = useState('');
   const [borrowDialogOpen, setBorrowDialogOpen] = useState(false);
-  const [borrowMessage, setBorrowMessage] = useState(''); // New state for the borrow message
+  const [borrowMessage, setBorrowMessage] = useState('');
 
   const handleBorrowClick = () => {
     setBorrowDialogOpen(true);
@@ -16,13 +16,13 @@ const BookBorrow = ({ bookId, onBorrowSuccess }) => {
       .post(`/books/${bookId}/borrow`, { dueDate })
       .then((response) => {
         console.log('Book borrowed successfully');
-        setBorrowMessage('Book borrowed successfully'); // Update the message on success
+        setBorrowMessage('Book borrowed successfully');
         onBorrowSuccess(response.data);
         setBorrowDialogOpen(false);
       })
       .catch((error) => {
         console.error('Error borrowing book:', error);
-        setBorrowMessage('Error borrowing book. Please try again.'); // Update the message on error
+        setBorrowMessage('Error borrowing book. Please try again.');
         setBorrowDialogOpen(false);
       });
   };
