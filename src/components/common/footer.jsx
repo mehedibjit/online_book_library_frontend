@@ -5,7 +5,7 @@ const styles = {
   appBar: {
     top: 'auto',
     bottom: 0,
-    position: 'fixed',
+    position: 'fixed', 
     width: '100%',
   },
 };
